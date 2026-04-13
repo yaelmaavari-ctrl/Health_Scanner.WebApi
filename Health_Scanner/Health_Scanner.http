@@ -1,0 +1,6 @@
+@Health_Scanner_HostAddress = http://localhost:5013
+
+GET {{Health_Scanner_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
