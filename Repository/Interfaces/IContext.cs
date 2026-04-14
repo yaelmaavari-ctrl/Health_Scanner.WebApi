@@ -1,4 +1,5 @@
-﻿using Repository.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Repository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,6 @@ namespace Repository.Interfaces
         public DbSet<User> Users { get; set; }
         public DbSet<Allergen> Allergens { get; set; }
         public DbSet<UserAllergen> UserAllergens { get; set; }
-
+        public Task Save();
     }
 }
