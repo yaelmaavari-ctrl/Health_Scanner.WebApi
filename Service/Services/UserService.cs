@@ -75,15 +75,19 @@ namespace Service.Services
                 Email = result.Email
             };
         }
-        
+
 
         public async Task<UserDto> UpdateUser(int id, UserUpdateDto dto)
         {
-            var user = await _repository.GetById(id) ?? throw new NotFoundException("User not found");
+            var user = await _repository.GetById(id)
+                ?? throw new NotFoundException("User not found");
+
             user.Name = dto.Name;
             user.Email = dto.Email;
-            var updatedUser = await _repository.Update(user);
-            return _mapper.Map<UserDto>(updatedUser);
+
+            await _repository.Update(user);
+
+            return _mapper.Map<UserDto>(user);
         }
 
         public async Task<bool> UserExists(string email)

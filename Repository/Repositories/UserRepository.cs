@@ -38,16 +38,22 @@ namespace Repository.Repositories
 
         }
 
-        public async Task<User?> Update(int Id, User updatedUser)
+        public Task<User?> GetById(int id)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == Id);
+            throw new NotImplementedException();
+        }
+
+        public async Task Update(User updatedUser)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == updatedUser.Id);
             if(user == null)
-                return null;
+              throw new Exception("User not found");
+
             user.Name = updatedUser.Name;
             user.Email = updatedUser.Email;
             user.Password = updatedUser.Password;
             await _context.Save();
-            return user;
+ 
         }
     }
 }

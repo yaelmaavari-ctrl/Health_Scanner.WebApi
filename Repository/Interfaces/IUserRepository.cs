@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Repository.Entities;
 
 namespace Repository.Interfaces
 {
-    internal interface IUserRepository
+    public interface IUserRepository
     {
+        Task<User?> GetById(int id);
+        Task<User?> GetByEmail(string email);
+        Task<User> Add(User user);
+        Task Update(User user);
+        Task<bool> Delete(int id);
     }
 }

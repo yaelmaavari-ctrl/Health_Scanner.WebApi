@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataContext", "DataContext\DataContext.csproj", "{21BBABA7-FC69-4D80-8C19-8A9952EF08E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{21BBABA7-FC69-4D80-8C19-8A9952EF08E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21BBABA7-FC69-4D80-8C19-8A9952EF08E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21BBABA7-FC69-4D80-8C19-8A9952EF08E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B79BC5-153E-2FD9-CAE3-8149E0D9044F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

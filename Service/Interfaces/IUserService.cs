@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository.Interfaces
+namespace Service.Interfaces
 {
-    public interface IRepository<T>
+    public interface IUserService
     {
     }
 }
