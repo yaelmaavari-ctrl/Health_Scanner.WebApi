@@ -1,6 +1,6 @@
 ﻿namespace Service.Dto
 {
-    public class LoginRequest
+    public class Login
     {
         public string Email { get; set; }
         public string Password { get; set; }
