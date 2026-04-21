@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    public class AllergenRepository(IContext context) : IAllergenRepository<Allergen>
+    public class AllergenRepository(IContext context) : IAllergenRepository
     {
         private readonly IContext _context = context;
         public async Task<Allergen> AddItem(Allergen item)
