@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    public class AllergenRepository(IContext context) : IRepository<Allergen>
+    public class AllergenRepository(IContext context) : IAllergenRepository<Allergen>
     {
         private readonly IContext _context = context;
         public async Task<Allergen> AddItem(Allergen item)
@@ -39,6 +39,12 @@ namespace Repository.Repositories
         public async Task<Allergen?> GetById(int id)
         {
             return await _context.Allergens.FirstOrDefaultAsync(a => a.Id == id);
+        }
+
+        public async Task<bool> Exists(string name)
+        {
+            return await _context.Allergens
+                .AnyAsync(a => a.Name.ToLower().Trim() == name.ToLower().Trim());
         }
 
         public async Task<Allergen?> UpdateItem(int id, Allergen item)
