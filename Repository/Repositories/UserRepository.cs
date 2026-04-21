@@ -38,9 +38,10 @@ namespace Repository.Repositories
 
         }
 
-        public Task<User?> GetById(int id)
+        public async Task<User?> GetById(int id)
         {
-            throw new NotImplementedException();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+            return user;
         }
 
         public async Task Update(User updatedUser)
