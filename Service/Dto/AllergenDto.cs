@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Service.Dto
 {
-    internal class AllergenDto
+    public class AllergenDto
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
+    public class AllergenCreateDto
+    {
+        public string Name { get; set; }
+    }
+     
 }
