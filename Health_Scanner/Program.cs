@@ -27,6 +27,8 @@ builder.Services.AddDbContext<HealthScannerContext>(options =>
 builder.Services.AddScoped<IContext, HealthScannerContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAllergenRepository, AllergenRepository>();
+builder.Services.AddScoped<IAllergenService, AllergenService>();
 
 // עדכון AutoMapper לצורה המומלצת שסורקת את ה-Assembly
 builder.Services.AddAutoMapper(cfg =>
