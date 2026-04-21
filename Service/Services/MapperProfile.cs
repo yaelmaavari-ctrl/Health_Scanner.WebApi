@@ -11,6 +11,8 @@ namespace Service
             CreateMap<User, UserDto>();
             CreateMap<UserCreateDto, User>();
             CreateMap<UserUpdateDto, User>();
+            CreateMap<AllergenCreateDto, Allergen>();
+            CreateMap<Allergen, AllergenDto>();
         }
     }
 }
