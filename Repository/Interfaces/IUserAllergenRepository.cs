@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Repository.Entities;
+
 
 namespace Repository.Interfaces
 {
-    internal interface IUserAllergenRepository
+    public interface IUserAllergenRepository
     {
-    }
+        Task<UserAllergen> AddAllergenToUser(int userId, int allergenId);
+        Task<bool> RemoveAllergenFromUser(int userId, int allergenId);
+        Task<IEnumerable<Allergen>> GetAllergensByUserId(int userId);
+        Task<bool> IsUserAllergicTo(int userId, int allergenId);
+
+        // בונוס: מציאת כל המשתמשים שאלרגיים למשהו ספציפי (שימושי לסטטיסטיקה או התראות)
+        //Task<IEnumerable<User>> GetUsersByAllergenId(int allergenId);
+    }   
 }
+
+
