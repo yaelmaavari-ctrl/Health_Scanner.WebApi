@@ -29,6 +29,8 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAllergenRepository, AllergenRepository>();
 builder.Services.AddScoped<IAllergenService, AllergenService>();
+builder.Services.AddScoped<IUserAllergenRepository, UserAllergenRepository>();
+builder.Services.AddScoped<IUserAllergenService, UserAllergenService>();
 
 // עדכון AutoMapper לצורה המומלצת שסורקת את ה-Assembly
 builder.Services.AddAutoMapper(cfg =>
