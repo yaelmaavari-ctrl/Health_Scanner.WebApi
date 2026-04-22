@@ -20,9 +20,21 @@ namespace DataContext
             await SaveChangesAsync();
         }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserAllergen>().HasKey(ua => new { ua.UserId, ua.AllergenId });
+            modelBuilder.Entity<UserAllergen>()
+                .HasKey(ua => new { ua.UserId, ua.AllergenId });
+
+            modelBuilder.Entity<UserAllergen>()
+                .HasOne(ua => ua.User)
+                .WithMany(u => u.UserAllergens)
+                .HasForeignKey(ua => ua.UserId);
+
+            modelBuilder.Entity<UserAllergen>()
+                .HasOne(ua => ua.Allergen)
+                .WithMany() 
+                .HasForeignKey(ua => ua.AllergenId);
         }
     }
 }

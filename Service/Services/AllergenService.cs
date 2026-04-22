@@ -58,21 +58,16 @@ namespace Service.Services
             {
                 throw new NotFoundException($"Allergen with ID {id} was not found.");
             }
-            // 3. בדיקת כפילות שם: מוודאים שאין אלרגיה אחרת עם אותו שם (חוץ מזו שאנחנו מעדכנים כרגע)
-            // הערה: כדאי שתהיה לך פונקציה ב-Repository שבודקת קיום שם ל-ID אחר
+
             if (await _repository.Exists(dto.Name) && existingAllergen.Name.ToLower() != dto.Name.ToLower())
             {
                 throw new InvalidOperationException($"Another allergen with the name '{dto.Name}' already exists.");
             }
 
-            // 4. עדכון השדות מה-DTO לישות הקיימת באמצעות AutoMapper
-            // הפעולה הזו מעתיקה את ה-Name מה-dto לתוך ה-existingAllergen
             _mapper.Map(dto, existingAllergen);
 
-            // 5. שמירת השינויים בבסיס הנתונים
             await _repository.UpdateItem(id,existingAllergen);
 
-            // 6. החזרת האובייקט המעודכן כ-Dto
             return _mapper.Map<AllergenDto>(existingAllergen);
         }
     }
