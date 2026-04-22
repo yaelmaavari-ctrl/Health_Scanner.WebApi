@@ -9,7 +9,7 @@ namespace Service.Interfaces
 {
     public interface IUserAllergenService
     {
-        Task AddAllergenToUser(int userId, int allergenId);
+        Task<AllergenDto> AddAllergenToUser(int userId, int allergenId);
         Task RemoveAllergenFromUser(int userId, int allergenId);
         Task<IEnumerable<AllergenDto>> GetUserAllergens(int userId);
     }
