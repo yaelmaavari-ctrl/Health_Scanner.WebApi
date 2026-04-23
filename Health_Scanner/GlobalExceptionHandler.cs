@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Service.Exceptions;
 
-namespace CompileLab.WebApi
+namespace Health_Scanner.WebApi
 {
     public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IExceptionHandler
     {
@@ -24,6 +24,10 @@ namespace CompileLab.WebApi
                 NotFoundException => (StatusCodes.Status404NotFound, "Not Found"),
 
                 KeyNotFoundException => (StatusCodes.Status404NotFound, "Not Found"),
+
+                UnsupportedLanguageException => (StatusCodes.Status400BadRequest, "Unsupported Language"),
+
+                ExternalServiceException => (StatusCodes.Status503ServiceUnavailable, "External API Error"),
 
                 _ => (StatusCodes.Status500InternalServerError, "Internal Server Error")
             };

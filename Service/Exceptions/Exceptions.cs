@@ -16,4 +16,13 @@ namespace Service.Exceptions
     public class UnauthorizedException(string message) : Exception(message)
     {
     }
+
+    public class ExternalServiceException(string message, Exception? innerException = null)
+    : Exception(message, innerException)
+    {
+    }
+
+    public class UnsupportedLanguageException(string message) : Exception(message)
+    {
+    }
 }
