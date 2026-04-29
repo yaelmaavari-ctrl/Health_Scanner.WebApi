@@ -1,5 +1,5 @@
-using CompileLab.WebApi; // וודאי שזה ה-Namespace של ה-ExceptionHandler שלך
 using DataContext;
+using Health_Scanner.WebApi;
 using Microsoft.EntityFrameworkCore;
 using Repository.Interfaces;
 using Repository.Repositories;
@@ -23,6 +23,8 @@ builder.Services.AddProblemDetails();
 builder.Services.AddDbContext<HealthScannerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddHttpClient<IProductService, ProductService>();
+
 // הזרקת תלויות (DI)
 builder.Services.AddScoped<IContext, HealthScannerContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -31,6 +33,8 @@ builder.Services.AddScoped<IAllergenRepository, AllergenRepository>();
 builder.Services.AddScoped<IAllergenService, AllergenService>();
 builder.Services.AddScoped<IUserAllergenRepository, UserAllergenRepository>();
 builder.Services.AddScoped<IUserAllergenService, UserAllergenService>();
+builder.Services.AddScoped<IScanHistoryRepository, ScanHistoryRepository>();
+builder.Services.AddScoped<IScanHistoryService, ScanHistoryService>();
 
 // עדכון AutoMapper לצורה המומלצת שסורקת את ה-Assembly
 builder.Services.AddAutoMapper(cfg =>
