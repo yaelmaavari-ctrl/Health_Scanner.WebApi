@@ -13,5 +13,6 @@ namespace Repository.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public virtual ICollection<UserAllergen> UserAllergens { get; set; } = new List<UserAllergen>();
+        public virtual ICollection<ScanHistory> Scans { get; set; } = new List<ScanHistory>();
     }
 }
