@@ -13,6 +13,7 @@ namespace Service
             CreateMap<UserUpdateDto, User>();
             CreateMap<AllergenCreateDto, Allergen>();
             CreateMap<Allergen, AllergenDto>();
+            CreateMap<ScanHistory, ScanHistoryDto>();
         }
     }
 }
