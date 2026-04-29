@@ -13,6 +13,7 @@ namespace Repository.Interfaces
         public DbSet<User> Users { get; set; }
         public DbSet<Allergen> Allergens { get; set; }
         public DbSet<UserAllergen> UserAllergens { get; set; }
+        public DbSet<ScanHistory> ScanHistories { get; set; }
         public Task Save();
     }
 }
