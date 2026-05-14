@@ -51,6 +51,7 @@ namespace Service.Services
             return _mapper.Map<AllergenDto>(allergen);
         }
 
+
         public async Task<AllergenDto> Update(int id, AllergenCreateDto dto)
         {
             var existingAllergen = await _repository.GetById(id);

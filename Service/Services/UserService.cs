@@ -12,25 +12,25 @@ namespace Service.Services
         private readonly IUserRepository _repository = userRepository;
         private readonly IMapper _mapper = mapper;
 
-        public async Task ChangePassword(int userId, string oldPassword, string newPassword)
-        {
-            var user = await _repository.GetById(userId)
-                ?? throw new NotFoundException("User not found");
+        //public async Task ChangePassword(int userId, string oldPassword, string newPassword)
+        //{
+        //    var user = await _repository.GetById(userId)
+        //        ?? throw new NotFoundException("User not found");
 
-            if (!BCrypt.Net.BCrypt.Verify(oldPassword, user.Password))
-                throw new UnauthorizedAccessException("Old password is incorrect");
+        //    if (!BCrypt.Net.BCrypt.Verify(oldPassword, user.Password))
+        //        throw new UnauthorizedAccessException("Old password is incorrect");
 
-            user.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);
-            await _repository.Update(user);
-        }
+        //    user.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);
+        //    await _repository.Update(user);
+        //}
 
-        public async Task<bool> DeleteUser(int id)
-        {
-            var user = await _repository.GetById(id)
-                ?? throw new NotFoundException("User not found");
+        //public async Task<bool> DeleteUser(int id)
+        //{
+        //    var user = await _repository.GetById(id)
+        //        ?? throw new NotFoundException("User not found");
 
-            return await _repository.Delete(id);
-        }
+        //    return await _repository.Delete(id);
+        //}
 
         public async Task<UserDto> GetByEmail(string email)
         {
@@ -48,34 +48,34 @@ namespace Service.Services
             return _mapper.Map<UserDto>(user);
         }
 
-        public async Task<UserDto> Login(string email, string password)
-        {
-            var user = await _repository.GetByEmail(email);
+        //public async Task<UserDto> Login(string email, string password)
+        //{
+        //    var user = await _repository.GetByEmail(email);
 
-            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
-            {
-                throw new UnauthorizedAccessException("Invalid email or password");
-            }
+        //    if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
+        //    {
+        //        throw new UnauthorizedAccessException("Invalid email or password");
+        //    }
 
-            return _mapper.Map<UserDto>(user);
-        }
+        //    return _mapper.Map<UserDto>(user);
+        //}
 
-        public async Task<UserDto> Register(UserCreateDto dto)
-        {
-            var exists = await _repository.GetByEmail(dto.Email);
-            if (exists != null)
-                throw new InvalidOperationException("User already exists");
+        //public async Task<UserDto> Register(UserCreateDto dto)
+        //{
+        //    var exists = await _repository.GetByEmail(dto.Email);
+        //    if (exists != null)
+        //        throw new InvalidOperationException("User already exists");
 
-            var user = new User
-            {
-                Name = dto.Name,
-                Email = dto.Email,
-                Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
-            };
+        //    var user = new User
+        //    {
+        //        Name = dto.Name,
+        //        Email = dto.Email,
+        //        Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
+        //    };
 
-            var result = await _repository.Add(user);
-            return _mapper.Map<UserDto>(result);
-        }
+        //    var result = await _repository.Add(user);
+        //    return _mapper.Map<UserDto>(result);
+        //}
         public async Task<UserDto> UpdateUser(int id, UserUpdateDto dto)
         {
             var user = await _repository.GetById(id)

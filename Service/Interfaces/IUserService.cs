@@ -10,10 +10,10 @@ namespace Service.Interfaces
     {
         Task<UserDto> GetById(int id);
         Task<UserDto> GetByEmail(string email);
-        Task<UserDto> Register(UserCreateDto dto);
-        Task<UserDto> Login(string email, string password);
+        //Task<UserDto> Register(UserCreateDto dto);
+        //Task<UserDto> Login(string email, string password);
         Task<UserDto> UpdateUser(int id, UserUpdateDto dto);
-        Task ChangePassword(int userId, string oldPassword, string newPassword);
-        Task<bool> DeleteUser(int id);
+        //Task ChangePassword(int userId, string oldPassword, string newPassword);
+        //Task<bool> DeleteUser(int id);
     }
 }
